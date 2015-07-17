@@ -16,7 +16,7 @@ namespace TripServiceKata.Tests
 			throw new System.NotImplementedException();
 		}
 
-		public User.User GetLoggedUser()
+		public User.User GetLoggedInUser()
 		{
 			return _loggedUser;
 		}

@@ -5,7 +5,7 @@ namespace TripServiceKata.User
 	public interface IUserSession
 	{
 		bool IsUserLoggedIn(User user);
-		User GetLoggedUser();
+		User GetLoggedInUser();
 	}
 
 	public class UserSession : IUserSession
@@ -25,10 +25,10 @@ namespace TripServiceKata.User
                 "UserSession.IsUserLoggedIn() should not be called in an unit test");
         }
 
-        public User GetLoggedUser()
+        public User GetLoggedInUser()
         {
             throw new DependendClassCallDuringUnitTestException(
-                "UserSession.GetLoggedUser() should not be called in an unit test");
+                "UserSession.GetLoggedInUser() should not be called in an unit test");
         }
     }
 }
