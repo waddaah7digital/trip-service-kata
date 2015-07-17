@@ -31,12 +31,13 @@ namespace TripServiceKata.Tests
 		public void When_logged_in_user_is_a_friend_then_returns_trips_from_service()
 		{
 			var loggedInUser = new User.User();
-			var tripService = new TripService(new MockUserSession(loggedInUser), new MockTripDAOWrapper(new List<Trip.Trip>{new Trip.Trip()}));
+			var tripsFromService = new List<Trip.Trip>{new Trip.Trip()};
+			var tripService = new TripService(new MockUserSession(loggedInUser), new MockTripDAOWrapper(tripsFromService));
 			var userToQuery = new User.User();
 			userToQuery.AddFriend(loggedInUser);
 
 			var actual = tripService.GetTripsByUser(userToQuery);
-			Assert.That(actual, Is.EqualTo(new List<Trip.Trip>{new Trip.Trip()}));
+			Assert.That(actual, Is.EqualTo(tripsFromService));
 		}
 	}
 }
