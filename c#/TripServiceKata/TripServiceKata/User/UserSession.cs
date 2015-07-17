@@ -2,13 +2,19 @@
 
 namespace TripServiceKata.User
 {
-    public class UserSession
-    {
-        private static readonly UserSession userSession = new UserSession();
+	public interface IUserSession
+	{
+		bool IsUserLoggedIn(User user);
+		User GetLoggedUser();
+	}
+
+	public class UserSession : IUserSession
+	{
+        private static readonly IUserSession userSession = new UserSession();
 
         private UserSession() { }
 
-        public static UserSession GetInstance()
+        public static IUserSession GetInstance()
         {
             return userSession;
         }
